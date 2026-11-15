@@ -39,18 +39,18 @@ jobs:
         run: sdkmanager --install "platforms;android-36" "build-tools;36.0.0"
 
       - name: Extract Android project
-        run: unzip -q Alart-source.zip -d source
+        run: tar -xzf Alart-source.tar.gz
 
       - name: Run unit tests
-        working-directory: source/Alart
+        working-directory: Alart
         run: gradle --no-daemon testDebugUnitTest
 
       - name: Build installable debug APK
-        working-directory: source/Alart
+        working-directory: Alart
         run: gradle --no-daemon assembleDebug
 
       - name: Verify APK and write build summary
-        working-directory: source/Alart
+        working-directory: Alart
         shell: bash
         run: |
           APK="app/build/outputs/apk/debug/app-debug.apk"
@@ -75,11 +75,19 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+      - name: Upload source archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: Alart-source-code
+          path: Alart-source.tar.gz
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Upload test reports on failure
         if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: Alart-build-reports
-          path: source/Alart/app/build/reports/
+          path: Alart/app/build/reports/
           if-no-files-found: ignore
           retention-days: 7
