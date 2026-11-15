@@ -1,6 +1,6 @@
 # Alart — Android Alarm App
 
-Alart is an Android alarm application built with Kotlin, Jetpack Compose and Material 3. The complete source project is provided in [Alart-source.zip](Alart-source.zip).
+Alart is an Android alarm application built with Kotlin, Jetpack Compose and Material 3. The complete source project is provided in [Alart-source.tar.gz](Alart-source.tar.gz).
 
 ## Download the APK
 
@@ -15,8 +15,8 @@ You can also start a build manually from **Actions → Build Android APK → Run
 
 ## Build pipeline
 
-GitHub Actions installs JDK 17, Android SDK 36 and Gradle 8.13, extracts the source project, runs unit tests, builds `assembleDebug`, verifies the APK exists, and uploads it as a 30-day artifact. The APK is a debug-signed installable build, not a Play Store release.
+GitHub Actions installs JDK 17, Android SDK 36 and Gradle 8.13, extracts the source project, runs unit tests, builds `assembleDebug`, verifies the APK exists, and uploads it as a 30-day artifact. A second artifact named `Alart-source-code` contains the full project source. The APK is a debug-signed installable build, not a Play Store release.
 
 ## Local development
 
-Extract `Alart-source.zip` and open the `Alart` folder in Android Studio. The project uses Android Gradle Plugin 8.11.1, Kotlin 2.2.20 and Gradle 8.13.
+Extract `Alart-source.tar.gz` and open the `Alart` folder in Android Studio. The project uses Android Gradle Plugin 8.11.1, Kotlin 2.2.20 and Gradle 8.13.
