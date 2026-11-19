@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: android-apk-${{ github.ref }}
+  group: android-apk-${{ github.run_id }}
   cancel-in-progress: true
 
 jobs:
