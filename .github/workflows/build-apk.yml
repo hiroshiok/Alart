@@ -58,6 +58,7 @@ jobs:
               (cd Alart && patch --batch -p1 < /tmp/alart-v2.patch)
             fi
             if [[ ! -s Alart/app/src/main/res/drawable-nodpi/ic_launcher_foreground.webp ]]; then
+              mkdir -p Alart/app/src/main/res/drawable-nodpi
               cat .github/alart-upgrade/icon.part*.b64 | base64 -d > Alart/app/src/main/res/drawable-nodpi/ic_launcher_foreground.webp
             fi
           fi
